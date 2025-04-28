@@ -6,89 +6,91 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #002147; /* Azul oscuro institucional */
-            color: #ffffff;
+            background-color: #ffffff; /* Fondo blanco */
+            color: #333333; /* Texto negro/gris oscuro */
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #8A1538; /* Rojo Puebla */
-            padding: 20px;
+            background-color: #800000; /* Vino tinto Morena */
+            padding: 30px 20px;
             text-align: center;
         }
         header h1 {
             margin: 0;
             font-size: 36px;
-            color: #FFD700; /* Dorado institucional */
+            color: #ffffff;
         }
         header p {
-            font-size: 18px;
             margin-top: 10px;
+            font-size: 18px;
+            color: #f0f0f0;
         }
         main {
-            padding: 20px;
+            padding: 30px 20px;
         }
         .section {
-            background: #ffffff;
-            color: #333333;
             margin: 20px auto;
             padding: 20px;
-            border-radius: 10px;
-            width: 90%;
             max-width: 800px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+            border-bottom: 1px solid #dddddd;
         }
         .section h2 {
-            color: #8A1538;
+            color: #800000;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
         .section p {
             font-size: 16px;
+            line-height: 1.5;
         }
         form {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
         }
         input[type="text"] {
             padding: 10px;
             width: 250px;
+            border: 1px solid #cccccc;
             border-radius: 5px;
-            border: none;
             margin-right: 10px;
         }
         button {
             padding: 10px 20px;
-            background-color: #FFD700;
-            color: #8A1538;
+            background-color: #800000;
+            color: white;
             border: none;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
         }
         button:hover {
-            background-color: #e6c200;
-        }
-        footer {
-            background: #8A1538;
-            color: #FFD700;
-            text-align: center;
-            padding: 10px;
-            margin-top: 40px;
+            background-color: #a00000;
         }
         .qr-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .qr-box {
-            background: white;
-            padding: 10px;
+            background: #f9f9f9;
+            padding: 15px;
             margin: 10px;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .qr-box img {
             width: 200px;
             height: 200px;
+        }
+        footer {
+            background-color: #800000;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -96,39 +98,34 @@
 
 <header>
     <h1>Mercados de Puebla</h1>
-    <p>Plataforma Oficial de Productos, Servicios y Beneficios Sociales</p>
+    <p>Compra, tradición y apoyo social para todos</p>
 </header>
 
 <main>
 
     <div class="section">
         <h2>Catálogo de Productos y Servicios</h2>
-        <p>Explora productos frescos, servicios locales y ofertas especiales de cada mercado de Puebla.</p>
+        <p>Explora los mejores productos frescos, servicios locales y mercados tradicionales de Puebla.</p>
     </div>
 
     <div class="section">
         <h2>Registro de Locatarios</h2>
-        <p>Los locatarios pueden registrarse y administrar sus productos directamente en la plataforma.</p>
+        <p>Locatarios pueden registrarse y gestionar sus ventas y productos de manera digital.</p>
     </div>
 
     <div class="section">
-        <h2>Carrito de Compras</h2>
-        <p>Compra fácilmente productos de diferentes locatarios, en un solo proceso seguro y rápido.</p>
+        <h2>Carrito de Compras Inteligente</h2>
+        <p>Compra fácil, seguro y rápido combinando productos de varios locatarios en un solo pago.</p>
     </div>
 
     <div class="section">
-        <h2>Beneficios Sociales mediante QR</h2>
-        <p>Usuarios beneficiarios podrán usar subsidios mediante códigos QR en mercados participantes.</p>
+        <h2>Subsidios Sociales mediante Código QR</h2>
+        <p>Usuarios vulnerables podrán realizar compras usando sus beneficios sociales de forma segura.</p>
     </div>
 
     <div class="section">
-        <h2>Geolocalización, Noticias y Eventos</h2>
-        <p>Encuentra mercados cercanos, entérate de eventos culturales y mantente informado con noticias oficiales.</p>
-    </div>
-
-    <div class="section">
-        <h2>Conexión con el Centro de Control de Mercados</h2>
-        <p>Supervisión, monitoreo y gestión segura de los mercados de Puebla a través del centro de control digital.</p>
+        <h2>Noticias, Eventos y Geolocalización</h2>
+        <p>Encuentra eventos culturales, noticias de los mercados y ubica fácilmente tu mercado más cercano.</p>
     </div>
 
     <form method="POST" action="/generate_qr">
@@ -146,7 +143,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <p style="margin-top:20px; text-align:center;">Aún no hay QR generados.</p>
+    <p style="text-align:center; margin-top:20px;">Aún no hay QR generados.</p>
     {% endif %}
 
 </main>
@@ -157,3 +154,4 @@
 
 </body>
 </html>
+
