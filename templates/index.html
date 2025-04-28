@@ -2,31 +2,63 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>QR Subsidios Puebla</title>
+    <title>Mercados de Puebla</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #002147; /* Azul oscuro Puebla */
-            color: white;
+            background-color: #002147; /* Azul oscuro institucional */
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #8A1538; /* Rojo Puebla */
+            padding: 20px;
             text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #FFD700; /* Dorado institucional */
+        }
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        main {
             padding: 20px;
         }
-        h1 {
-            color: #FFD700; /* Dorado */
+        .section {
+            background: #ffffff;
+            color: #333333;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+        }
+        .section h2 {
+            color: #8A1538;
+        }
+        .section p {
+            font-size: 16px;
         }
         form {
-            margin: 20px 0;
+            margin-top: 30px;
+            text-align: center;
         }
         input[type="text"] {
             padding: 10px;
             width: 250px;
-            border: none;
             border-radius: 5px;
+            border: none;
+            margin-right: 10px;
         }
         button {
             padding: 10px 20px;
             background-color: #FFD700;
-            color: #002147;
+            color: #8A1538;
             border: none;
             border-radius: 5px;
             font-weight: bold;
@@ -35,15 +67,21 @@
         button:hover {
             background-color: #e6c200;
         }
+        footer {
+            background: #8A1538;
+            color: #FFD700;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
         .qr-container {
-            margin-top: 30px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            margin-top: 20px;
         }
         .qr-box {
             background: white;
-            color: black;
             padding: 10px;
             margin: 10px;
             border-radius: 10px;
@@ -55,24 +93,67 @@
     </style>
 </head>
 <body>
-    <h1>Subsidios de Canasta Básica</h1>
+
+<header>
+    <h1>Mercados de Puebla</h1>
+    <p>Plataforma Oficial de Productos, Servicios y Beneficios Sociales</p>
+</header>
+
+<main>
+
+    <div class="section">
+        <h2>Catálogo de Productos y Servicios</h2>
+        <p>Explora productos frescos, servicios locales y ofertas especiales de cada mercado de Puebla.</p>
+    </div>
+
+    <div class="section">
+        <h2>Registro de Locatarios</h2>
+        <p>Los locatarios pueden registrarse y administrar sus productos directamente en la plataforma.</p>
+    </div>
+
+    <div class="section">
+        <h2>Carrito de Compras</h2>
+        <p>Compra fácilmente productos de diferentes locatarios, en un solo proceso seguro y rápido.</p>
+    </div>
+
+    <div class="section">
+        <h2>Beneficios Sociales mediante QR</h2>
+        <p>Usuarios beneficiarios podrán usar subsidios mediante códigos QR en mercados participantes.</p>
+    </div>
+
+    <div class="section">
+        <h2>Geolocalización, Noticias y Eventos</h2>
+        <p>Encuentra mercados cercanos, entérate de eventos culturales y mantente informado con noticias oficiales.</p>
+    </div>
+
+    <div class="section">
+        <h2>Conexión con el Centro de Control de Mercados</h2>
+        <p>Supervisión, monitoreo y gestión segura de los mercados de Puebla a través del centro de control digital.</p>
+    </div>
 
     <form method="POST" action="/generate_qr">
-        <input type="text" name="responsable" placeholder="Nombre del responsable" required>
-        <button type="submit">Generar QR</button>
+        <input type="text" name="responsable" placeholder="Nombre del Responsable" required>
+        <button type="submit">Generar QR de Subsidio</button>
     </form>
 
     {% if qr_files %}
     <div class="qr-container">
         {% for qr in qr_files %}
         <div class="qr-box">
-            <img src="{{ url_for('static', filename='qrs/' + qr) }}" alt="QR">
+            <img src="{{ url_for('static', filename='qrs/' + qr) }}" alt="QR generado">
             <p>{{ qr.split('.')[0] }}</p>
         </div>
         {% endfor %}
     </div>
     {% else %}
-    <p>No hay QR generados aún.</p>
+    <p style="margin-top:20px; text-align:center;">Aún no hay QR generados.</p>
     {% endif %}
+
+</main>
+
+<footer>
+    Gobierno del Estado de Puebla - Proyecto Mercados 2025
+</footer>
+
 </body>
 </html>
