@@ -2,24 +2,77 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de QR para Subsidios</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>QR Subsidios Puebla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #002147; /* Azul oscuro Puebla */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #FFD700; /* Dorado */
+        }
+        form {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #002147;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e6c200;
+        }
+        .qr-container {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .qr-box {
+            background: white;
+            color: black;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .qr-box img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Generador de QR para Subsidios</h1>
-        <form method="POST" class="form">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <button type="submit">Generar QR</button>
-        </form>
+    <h1>Subsidios de Canasta Básica</h1>
 
-        {% if qr_image %}
-        <div class="qr-container">
-            <h2>Tu QR generado:</h2>
-            <img src="data:image/png;base64,{{ qr_image }}" alt="Código QR">
+    <form method="POST" action="/generate_qr">
+        <input type="text" name="responsable" placeholder="Nombre del responsable" required>
+        <button type="submit">Generar QR</button>
+    </form>
+
+    {% if qr_files %}
+    <div class="qr-container">
+        {% for qr in qr_files %}
+        <div class="qr-box">
+            <img src="{{ url_for('static', filename='qrs/' + qr) }}" alt="QR">
+            <p>{{ qr.split('.')[0] }}</p>
         </div>
-        {% endif %}
+        {% endfor %}
     </div>
+    {% else %}
+    <p>No hay QR generados aún.</p>
+    {% endif %}
 </body>
 </html>
