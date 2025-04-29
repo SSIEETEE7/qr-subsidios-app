@@ -4,20 +4,11 @@ import sqlite3
 app = Flask(__name__)
 
 # Página principal
-@app.route('/admin-locatarios')
-def admin_locatarios():
-    conn = sqlite3.connect('subsidios.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM locatarios')
-    locatarios = cursor.fetchall()
-    conn.close()
-    return render_template('admin-locatarios.html', locatarios=locatarios)
-
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Catálogo
+# Catálogo de productos
 @app.route('/catalogo')
 def catalogo():
     return render_template('catalogo.html')
@@ -50,7 +41,7 @@ def registro_locatarios():
         return render_template('registro-exitoso.html')
     return render_template('registro-locatarios.html')
 
-# Simular uso de QR
+# Página para usar QR (saldo)
 @app.route('/usar-qr', methods=['GET', 'POST'])
 def usar_qr():
     saldo = None
@@ -62,10 +53,25 @@ def usar_qr():
         if usar_saldo:
             mensaje = '¡Compra realizada exitosamente con tu subsidio de $450 pesos!'
         else:
-            saldo = 450
+            saldo = 450  # saldo simulado
     return render_template('usar-qr.html', saldo=saldo, mensaje=mensaje, codigo_qr=codigo_qr)
 
-# Iniciar app local o en Render
+# Admin de locatarios
+@app.route('/admin-locatarios')
+def admin_locatarios():
+    conn = sqlite3.connect('subsidios.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM locatarios')
+    locatarios = cursor.fetchall()
+    conn.close()
+    return render_template('admin-locatarios.html', locatarios=locatarios)
+
+# Página del carrito de compras
+@app.route('/carrito')
+def carrito():
+    return render_template('carrito.html')
+
+# Iniciar app en local o Render
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
