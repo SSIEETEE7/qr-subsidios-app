@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mercados Participantes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+      color: #000000;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+    header {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .municipios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .municipio {
+      background: #f7f7f7;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+    .municipio:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .municipio h2 {
+      color: #800000;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .mercados {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+    footer {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .btn-volver {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #d4af37;
+      color: #000000;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mercados Participantes</h1>
+  <a href="/" class="btn-volver">Volver al Inicio</a>
+</header>
+
+<main class="municipios-grid">
+
+  <div class="municipio">
+    <h2>Puebla Capital</h2>
+    <div class="mercados">Acocota<br>Emiliano Zapata</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Tehuacán</h2>
+    <div class="mercados">La Purísima</div>
+  </div>
+
+  <div class="municipio">
+    <h2>San Martín Texmelucan</h2>
+    <div class="mercados">Benito Juárez<br>Domingo Arenas</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Atlixco</h2>
+    <div class="mercados">Benito Juárez</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Izúcar de Matamoros</h2>
+    <div class="mercados">Miguel Hidalgo<br>5 de Mayo</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Huauchinango</h2>
+    <div class="mercados">Municipal</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Teziutlán</h2>
+    <div class="mercados">Victoria</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Zacatlán</h2>
+    <div class="mercados">Revolución</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Amozoc</h2>
+    <div class="mercados">Ignacio Zaragoza</div>
+  </div>
+
+  <div class="municipio">
+    <h2>Ajalpan</h2>
+    <div class="mercados">Municipal</div>
+  </div>
+
+</main>
+
+<footer>
+  Gobierno del Estado de Puebla - Proyecto Mercados 2025
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add('loaded');
+  });
+</script>
+
+</body>
+</html>

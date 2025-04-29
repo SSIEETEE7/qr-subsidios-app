@@ -10,6 +10,10 @@ def home():
 def catalogo():
     return render_template('catalogo.html')
 
+@app.route('/mercados')
+def mercados():
+    return render_template('mercados.html')
+
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
