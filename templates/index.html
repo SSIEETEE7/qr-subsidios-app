@@ -3,47 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Mercados de Puebla</title>
+
+    <!-- Fuente Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #ffffff; /* Fondo blanco */
-            color: #333333; /* Texto negro/gris oscuro */
+            background-color: #ffffff;
+            color: #000000;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #800000; /* Vino tinto Morena */
-            padding: 30px 20px;
+            background-color: #800000;
+            padding: 20px;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            color: #ffffff;
+        header img {
+            height: 80px;
+            margin-bottom: 10px;
         }
-        header p {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #f0f0f0;
+        header h1 {
+            margin: 10px 0 0;
+            font-size: 32px;
+            color: #ffffff;
         }
         main {
             padding: 30px 20px;
         }
         .section {
-            margin: 20px auto;
-            padding: 20px;
+            margin: 30px auto;
             max-width: 800px;
             border-bottom: 1px solid #dddddd;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+        .section img {
+            width: 80px;
+            margin-bottom: 15px;
         }
         .section h2 {
-            color: #800000;
             font-size: 24px;
             margin-bottom: 10px;
+            color: #800000;
         }
         .section p {
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
         form {
             margin-top: 40px;
@@ -98,35 +106,52 @@
 <body>
 
 <header>
+    <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" alt="Logo Gobierno de Puebla">
     <h1>Mercados de Puebla</h1>
-    <p>Compra, tradición y apoyo social para todos</p>
 </header>
 
 <main>
 
     <div class="section">
+        <img src="{{ url_for('static', filename='img/icono_catalogo.png') }}" alt="Catálogo Icono">
         <h2>Catálogo de Productos y Servicios</h2>
-        <p>Explora los mejores productos frescos, servicios locales y mercados tradicionales de Puebla.</p>
+        <p>Explora productos frescos, servicios locales y mercados tradicionales.</p>
+        <img src="{{ url_for('static', filename='img/foto_catalogo_real.jpg') }}" alt="Foto Mercado">
     </div>
 
     <div class="section">
+        <img src="{{ url_for('static', filename='img/icono_locatario.png') }}" alt="Locatario Icono">
         <h2>Registro de Locatarios</h2>
-        <p>Locatarios pueden registrarse y gestionar sus ventas y productos de manera digital.</p>
+        <p>Locatarios podrán gestionar sus ventas y productos desde la plataforma.</p>
+        <img src="{{ url_for('static', filename='img/foto_locatario_real.jpg') }}" alt="Foto Locatario">
     </div>
 
     <div class="section">
-        <h2>Carrito de Compras Inteligente</h2>
-        <p>Compra fácil, seguro y rápido combinando productos de varios locatarios en un solo pago.</p>
+        <img src="{{ url_for('static', filename='img/icono_carrito.png') }}" alt="Carrito Icono">
+        <h2>Carrito de Compras</h2>
+        <p>Compra combinada de productos de diferentes locatarios de forma segura.</p>
+        <img src="{{ url_for('static', filename='img/foto_carrito_real.jpg') }}" alt="Foto Carrito">
     </div>
 
     <div class="section">
-        <h2>Subsidios Sociales mediante Código QR</h2>
-        <p>Usuarios vulnerables podrán realizar compras usando sus beneficios sociales de forma segura.</p>
+        <img src="{{ url_for('static', filename='img/icono_qr.png') }}" alt="QR Icono">
+        <h2>Beneficios Sociales mediante Código QR</h2>
+        <p>Usuarios podrán usar sus subsidios escaneando un QR de forma rápida y segura.</p>
+        <img src="{{ url_for('static', filename='img/foto_qr_real.jpg') }}" alt="Foto QR">
     </div>
 
     <div class="section">
-        <h2>Noticias, Eventos y Geolocalización</h2>
-        <p>Encuentra eventos culturales, noticias de los mercados y ubica fácilmente tu mercado más cercano.</p>
+        <img src="{{ url_for('static', filename='img/icono_eventos.png') }}" alt="Eventos Icono">
+        <h2>Noticias, Eventos y Avisos</h2>
+        <p>Información actualizada de eventos culturales, promociones y noticias oficiales.</p>
+        <img src="{{ url_for('static', filename='img/foto_evento_real.jpg') }}" alt="Foto Evento">
+    </div>
+
+    <div class="section">
+        <img src="{{ url_for('static', filename='img/icono_mapa.png') }}" alt="Mapa Icono">
+        <h2>Geolocalización de Mercados</h2>
+        <p>Encuentra rápidamente el mercado más cercano a tu ubicación.</p>
+        <img src="{{ url_for('static', filename='img/foto_mapa_real.jpg') }}" alt="Foto Mapa">
     </div>
 
     <form method="POST" action="/generate_qr">
@@ -150,9 +175,8 @@
 </main>
 
 <footer>
-    Gobierno del Estado de Puebla - Proyecto Mercados 2025
+    Plataforma en etapa de desarrollo. Proyecto de Transformación Digital de Mercados 2025
 </footer>
 
 </body>
 </html>
-
