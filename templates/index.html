@@ -1,39 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Inicio | Market Puebla</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Mercados que renacen: Puebla Vive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img {
+      height: 70px;
+      margin-bottom: 1rem;
+    }
+    nav {
+      background-color: #5a0000;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    .botones {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .botones a {
+      background-color: #800000;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .botones a:hover {
+      background-color: #a00000;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 10px;
+      margin: 2rem auto;
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container d-flex justify-content-between">
-            <a href="{{ url_for('index') }}">Inicio</a>
-            <div>
-                <a href="{{ url_for('catalogo') }}">Catálogo</a>
-                <a href="{{ url_for('mercados') }}">Mercados</a>
-                <a href="{{ url_for('registro_locatarios') }}">Registro Locatarios</a>
-                <a href="{{ url_for('usar_qr') }}">Usar QR</a>
-                <a href="{{ url_for('carrito') }}">Carrito</a>
-                <a href="{{ url_for('admin_locatarios') }}">Admin</a>
-            </div>
-        </div>
-    </nav>
 
-    <main class="container text-center">
-        <h1 class="my-5">Bienvenido a <strong>Market Puebla</strong></h1>
-        <p class="lead mb-5">Conoce nuestros productos, mercados y aprovecha los subsidios QR disponibles.</p>
+  <header>
+    <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" alt="Gobierno de Puebla">
+    <h1>Mercados que renacen: <br><strong>Puebla Vive</strong></h1>
+    <p>Impulsando la economía local en cada rincón del estado</p>
+  </header>
 
-        <div class="d-flex justify-content-center flex-wrap gap-3">
-            <a href="{{ url_for('catalogo') }}" class="btn">Ver Catálogo</a>
-            <a href="{{ url_for('mercados') }}" class="btn">Ver Mercados</a>
-            <a href="{{ url_for('usar_qr') }}" class="btn">Usar mi Subsidio</a>
-        </div>
-    </main>
+  <nav>
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <a href="{{ url_for('catalogo') }}">Catálogo</a>
+    <a href="{{ url_for('mercados') }}">Mercados participantes</a>
+    <a href="{{ url_for('carrito') }}">Carrito</a>
+    <a href="{{ url_for('registro_locatarios') }}">Registro</a>
+    <a href="{{ url_for('usar_qr') }}">Usar QR</a>
+    <a href="{{ url_for('admin_locatarios') }}">Admin</a>
+  </nav>
 
-    <footer class="footer">
-        <p>© 2025 Market Puebla - Todos los derechos reservados</p>
-    </footer>
+  <main>
+    <img class="hero-img" src="{{ url_for('static', filename='img/hero_mercado.jpg') }}" alt="Imagen principal del mercado">
+    
+    <h2>Bienvenido al programa</h2>
+    <p>Conoce los productos locales, mercados tradicionales y servicios disponibles con tu subsidio QR.</p>
+
+    <div class="botones">
+      <a href="{{ url_for('catalogo') }}">Explorar Catálogo</a>
+      <a href="{{ url_for('mercados') }}">Ver Mercados</a>
+      <a href="{{ url_for('usar_qr') }}">Usar mi subsidio</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Mercados que renacen: Puebla Vive · Gobierno del Estado de Puebla
+  </footer>
+
 </body>
 </html>
