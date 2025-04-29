@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mercados de Puebla</title>
+  <title>Mercados que renacen: Puebla vive</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <style>
     body {
@@ -47,6 +47,7 @@
       justify-content: center;
       text-align: center;
       color: #ffffff;
+      padding: 20px;
     }
     .hero h1 {
       font-size: 48px;
@@ -68,17 +69,28 @@
       border-radius: 12px;
       padding: 40px 30px;
       text-align: center;
-      transition: transform 0.3s;
+      transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
       text-decoration: none;
       color: inherit;
+      opacity: 0;
+      transform: translateY(50px);
     }
-    .category:hover {
-      transform: translateY(-10px);
-      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    .category.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .category img {
       height: 100px;
       margin-bottom: 30px;
+      transition: transform 0.5s;
+    }
+    .category:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      background-color: #f0e6d2;
+    }
+    .category:hover img {
+      transform: scale(1.05);
     }
     .category h2 {
       font-size: 26px;
@@ -115,7 +127,7 @@
 </header>
 
 <section class="hero" id="inicio">
-  <h1>Conectando los mercados tradicionales de Puebla con el futuro digital</h1>
+  <h1>Mercados que renacen: Puebla vive</h1>
 </section>
 
 <section id="categorias" class="categories">
@@ -165,6 +177,21 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.add('loaded');
+
+    const categorias = document.querySelectorAll('.category');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    categorias.forEach(categoria => {
+      observer.observe(categoria);
+    });
   });
 </script>
 
