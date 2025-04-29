@@ -10,6 +10,11 @@
       margin: 0;
       background-color: #ffffff;
       color: #000000;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
     }
     header {
       background-color: #800000;
@@ -108,9 +113,9 @@
   <h1>Conectando los mercados tradicionales de Puebla con el futuro digital</h1>
 </section>
 
-<section class="categories">
+<section id="locatarios" class="categories">
 
-  <div class="category" id="locatarios">
+  <div class="category">
     <img src="{{ url_for('static', filename='img/icono_locatario.png') }}" alt="Locatarios">
     <h2>Locatarios</h2>
     <p>Regístrate como locatario y administra tu mercado digitalmente.</p>
@@ -140,5 +145,12 @@
   Gobierno del Estado de Puebla - Proyecto Mercados 2025
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add('loaded');
+  });
+</script>
+
 </body>
 </html>
+
