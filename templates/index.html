@@ -120,6 +120,21 @@
       margin-top: 60px;
       font-size: 16px;
     }
+
+    /* Responsive en móvil */
+    @media (max-width: 768px) {
+      .hero {
+        height: 50vh;
+        background-position: center;
+      }
+      .hero h1 {
+        font-size: 28px;
+        padding: 15px;
+      }
+      .categories {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -130,8 +145,8 @@
     <a href="/">Inicio</a>
     <a href="/catalogo">Catálogo</a>
     <a href="/mercados">Mercados Participantes</a>
-    <a href="#locatarios">Locatarios</a>
-    <a href="#compras">Compras</a>
+    <a href="/registro-locatarios">Locatarios</a>
+    <a href="/usar-qr">Compras</a>
     <a href="#beneficios">Beneficios</a>
     <a href="#eventos">Eventos</a>
   </nav>
@@ -158,22 +173,22 @@
     <p>Consulta los mercados activos en Puebla.</p>
   </a>
 
-  <div class="category" id="locatarios">
+  <a href="/registro-locatarios" class="category">
     <img src="{{ url_for('static', filename='img/icono_locatario.png') }}" alt="Locatarios">
     <h2>Locatarios</h2>
     <p>Regístrate como locatario y administra tu espacio digitalmente.</p>
-  </div>
+  </a>
 
-  <div class="category" id="compras">
+  <a href="/usar-qr" class="category">
     <img src="{{ url_for('static', filename='img/icono_carrito.png') }}" alt="Compras">
     <h2>Compras</h2>
-    <p>Realiza compras de productos frescos de varios locatarios.</p>
-  </div>
+    <p>Realiza compras de productos frescos usando tu subsidio QR.</p>
+  </a>
 
   <div class="category" id="beneficios">
     <img src="{{ url_for('static', filename='img/icono_qr.png') }}" alt="Beneficios">
     <h2>Beneficios Sociales</h2>
-    <p>Usa tus subsidios mediante QR en los mercados.</p>
+    <p>Accede a tus subsidios sociales mediante códigos QR.</p>
   </div>
 
   <div class="category" id="eventos">
@@ -207,11 +222,10 @@
       observer.observe(categoria);
     });
 
-    // NUEVO: Funcionalidad del carrito
+    // Contador de carrito (simulado)
     const carrito = document.getElementById('carrito');
     const contador = document.getElementById('contador');
 
-    // Detecta clicks en botones de carrito
     document.body.addEventListener('click', function(e) {
       if (e.target.classList.contains('btn-carrito')) {
         let cantidad = parseInt(contador.innerText);
@@ -224,3 +238,4 @@
 
 </body>
 </html>
+
