@@ -1,6 +1,5 @@
 
 from flask import Flask, render_template, request, redirect, url_for, session
-import sqlite3
 
 app = Flask(__name__)
 app.secret_key = 'clave_secreta'
@@ -54,29 +53,17 @@ def mercados():
 @app.route('/registro-locatarios', methods=['GET', 'POST'])
 def registro_locatarios():
     if request.method == 'POST':
-        nombre = request.form['nombre']
-        mercado = request.form['mercado']
-        productos = request.form['productos']
-        telefono = request.form['telefono']
-        correo = request.form['correo']
-        conn = sqlite3.connect('subsidios.db')
-        cursor = conn.cursor()
-        cursor.execute('''
-            INSERT INTO locatarios (nombre, mercado, productos, telefono, correo)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (nombre, mercado, productos, telefono, correo))
-        conn.commit()
-        conn.close()
+        # Aquí iría la lógica de base de datos (comentada para Render)
         return render_template('registro-exitoso.html')
     return render_template('registro-locatarios.html')
 
 @app.route('/admin-locatarios')
 def admin_locatarios():
-    conn = sqlite3.connect('subsidios.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM locatarios')
-    locatarios = cursor.fetchall()
-    conn.close()
+    # Locatarios simulados (sin BD)
+    locatarios = [
+        ('Juan Pérez', 'Acocota', 'Frutas', '2221234567', 'juan@example.com'),
+        ('Ana Ruiz', 'Sabores', 'Antojitos', '2227654321', 'ana@example.com')
+    ]
     return render_template('admin-locatarios.html', locatarios=locatarios)
 
 @app.route('/usar-qr', methods=['GET', 'POST'])
