@@ -1,18 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mercados participantes</title>
+    <title>Mercados Participantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Mercados Participantes</h1>
-    <ul>
+    <div class="mercados">
         {% for mercado in mercados %}
-            <li>
-                <strong>{{ mercado.nombre }}</strong>: {{ mercado.descripcion }}
-            </li>
+        <div class="mercado">
+            <img src="{{ url_for('static', filename='img/' + mercado.imagen) }}" alt="{{ mercado.nombre }}">
+            <h2>{{ mercado.nombre }}</h2>
+            <p>{{ mercado.descripcion }}</p>
+        </div>
         {% endfor %}
-    </ul>
-    <a href="{{ url_for('home') }}">Inicio</a>
+    </div>
 </body>
 </html>

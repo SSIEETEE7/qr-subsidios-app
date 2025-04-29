@@ -1,13 +1,12 @@
-/* Tipografía institucional */
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
-    color: #482C28; /* Guinda institucional para textos */
+    color: #482C28;
     margin: 0;
     padding: 0;
 }
 
-/* Navbar */
 .navbar {
     background-color: #482C28;
     padding: 10px 20px;
@@ -24,65 +23,45 @@ body {
     text-decoration: underline;
 }
 
-/* Botones */
-.btn {
-    padding: 10px 20px;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin: 5px;
-}
-
-.btn-primary {
-    background-color: #C2BA98; /* Dorado institucional */
-    color: #000000;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #A6A6A8; /* Gris medio */
-    color: #FFFFFF;
-}
-
-/* Títulos */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     color: #482C28;
 }
 
-/* Sección principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Tarjetas de productos */
 .card {
     background-color: #FFFFFF;
     border: 1px solid #D6D1C4;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.card-title {
-    color: #482C28;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.card-text {
-    font-size: 1em;
-    margin-bottom: 15px;
-}
-
-/* Footer */
 .footer {
     background-color: #D6D1C4;
     text-align: center;
-    padding: 15px 0;
-    color: #000000;
+    padding: 20px;
+    color: #000;
     margin-top: 50px;
+}
+
+.btn {
+    background-color: #C2BA98;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #A6A6A8;
+    color: #fff;
 }
