@@ -1,23 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
 
 app = Flask(__name__)
 
-# Ruta principal
+# Página principal
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Ruta catálogo
+# Catálogo
 @app.route('/catalogo')
 def catalogo():
     return render_template('catalogo.html')
 
-# Ruta mercados
+# Mercados participantes
 @app.route('/mercados')
 def mercados():
     return render_template('mercados.html')
 
-# Ruta registro de locatarios
+# Registro de locatarios
 @app.route('/registro-locatarios', methods=['GET', 'POST'])
 def registro_locatarios():
     if request.method == 'POST':
@@ -26,11 +27,21 @@ def registro_locatarios():
         productos = request.form['productos']
         telefono = request.form['telefono']
         correo = request.form['correo']
-        print(f"Registro recibido: {nombre}, {mercado}, {productos}, {telefono}, {correo}")
+
+        # Guardar en base de datos
+        conn = sqlite3.connect('subsidios.db')
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO locatarios (nombre, mercado, productos, telefono, correo)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (nombre, mercado, productos, telefono, correo))
+        conn.commit()
+        conn.close()
+
         return render_template('registro-exitoso.html')
     return render_template('registro-locatarios.html')
 
-# Ruta usar QR
+# Simular uso de QR
 @app.route('/usar-qr', methods=['GET', 'POST'])
 def usar_qr():
     saldo = None
@@ -42,10 +53,10 @@ def usar_qr():
         if usar_saldo:
             mensaje = '¡Compra realizada exitosamente con tu subsidio de $450 pesos!'
         else:
-            saldo = 450  # Muestra saldo disponible
+            saldo = 450
     return render_template('usar-qr.html', saldo=saldo, mensaje=mensaje, codigo_qr=codigo_qr)
 
-# Correr la app
+# Iniciar app local o en Render
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
