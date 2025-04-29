@@ -54,44 +54,68 @@
       padding: 20px;
       border-radius: 10px;
     }
+    .botones-principales {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin: 50px 0;
+    }
+    .boton-grande {
+      background-color: #d4af37;
+      color: #000000;
+      padding: 20px 50px;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .boton-grande:hover {
+      background-color: #c19e32;
+      color: #000000;
+    }
     .categories {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
       padding: 60px 30px;
       max-width: 1200px;
       margin: auto;
     }
     .category {
       background: #f7f7f7;
-      border: 1px solid #dddddd;
-      border-radius: 10px;
-      padding: 30px 20px;
+      border: 2px solid #dddddd;
+      border-radius: 12px;
+      padding: 40px 30px;
       text-align: center;
       transition: transform 0.3s;
     }
     .category:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     }
     .category img {
-      height: 80px;
-      margin-bottom: 20px;
+      height: 100px;
+      margin-bottom: 30px;
     }
     .category h2 {
-      font-size: 22px;
+      font-size: 26px;
       color: #800000;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
     .category p {
-      font-size: 16px;
+      font-size: 18px;
+      color: #555;
     }
     footer {
       background-color: #800000;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 30px;
+      margin-top: 60px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -110,8 +134,13 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="inicio">
   <h1>Conectando los mercados tradicionales de Puebla con el futuro digital</h1>
+</section>
+
+<section class="botones-principales">
+  <a href="/catalogo" class="boton-grande">Ver Catálogo</a>
+  <a href="/mercados" class="boton-grande">Ver Mercados Participantes</a>
 </section>
 
 <section id="locatarios" class="categories">
@@ -154,3 +183,4 @@
 
 </body>
 </html>
+
