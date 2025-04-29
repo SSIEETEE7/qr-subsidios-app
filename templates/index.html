@@ -22,6 +22,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 30px;
+      flex-wrap: wrap;
     }
     header img {
       height: 60px;
@@ -37,6 +38,16 @@
       font-size: 16px;
     }
     nav a:hover {
+      text-decoration: underline;
+    }
+    #carrito {
+      margin-left: 20px;
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #carrito:hover {
       text-decoration: underline;
     }
     .hero {
@@ -124,6 +135,9 @@
     <a href="#beneficios">Beneficios</a>
     <a href="#eventos">Eventos</a>
   </nav>
+  <div id="carrito">
+    🛒 Carrito (<span id="contador">0</span>)
+  </div>
 </header>
 
 <section class="hero" id="inicio">
@@ -191,6 +205,19 @@
 
     categorias.forEach(categoria => {
       observer.observe(categoria);
+    });
+
+    // NUEVO: Funcionalidad del carrito
+    const carrito = document.getElementById('carrito');
+    const contador = document.getElementById('contador');
+
+    // Detecta clicks en botones de carrito
+    document.body.addEventListener('click', function(e) {
+      if (e.target.classList.contains('btn-carrito')) {
+        let cantidad = parseInt(contador.innerText);
+        cantidad++;
+        contador.innerText = cantidad;
+      }
     });
   });
 </script>
