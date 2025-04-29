@@ -1,72 +1,88 @@
+/* Tipografía institucional */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFFFFF;
+    color: #482C28; /* Guinda institucional para textos */
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
 }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-}
-
-header {
-    background-color: #e60012; /* Rojo Puebla */
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 8px;
-}
-
-header h1 {
-    font-size: 24px;
-    margin: 0;
-}
-
-header p {
-    font-size: 16px;
-}
-
-.qr-section {
-    margin-top: 20px;
-}
-
-.generate-button {
-    background-color: #005fa9; /* Azul Puebla */
-    color: white;
+/* Navbar */
+.navbar {
+    background-color: #482C28;
     padding: 10px 20px;
-    border: none;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 20px;
+    font-weight: 500;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    display: inline-block;
+    margin: 5px;
 }
 
-.generate-button:hover {
-    background-color: #004a87;
+.btn-primary {
+    background-color: #C2BA98; /* Dorado institucional */
+    color: #000000;
+    border: none;
 }
 
-.qr-code {
-    text-align: center;
-    margin-top: 20px;
+.btn-primary:hover {
+    background-color: #A6A6A8; /* Gris medio */
+    color: #FFFFFF;
 }
 
-.qr-code img {
-    width: 200px;
-    height: 200px;
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    color: #482C28;
+}
+
+/* Sección principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Tarjetas de productos */
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D1C4;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    color: #482C28;
+    font-size: 1.2em;
     margin-bottom: 10px;
 }
 
-.qr-code p {
-    font-size: 16px;
-    font-weight: bold;
-    color: #e60012;
+.card-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    background-color: #D6D1C4;
+    text-align: center;
+    padding: 15px 0;
+    color: #000000;
+    margin-top: 50px;
 }
