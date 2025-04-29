@@ -4,6 +4,15 @@ import sqlite3
 app = Flask(__name__)
 
 # Página principal
+@app.route('/admin-locatarios')
+def admin_locatarios():
+    conn = sqlite3.connect('subsidios.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM locatarios')
+    locatarios = cursor.fetchall()
+    conn.close()
+    return render_template('admin-locatarios.html', locatarios=locatarios)
+
 @app.route('/')
 def home():
     return render_template('index.html')
