@@ -13,7 +13,7 @@
             <div>
                 <a href="{{ url_for('catalogo') }}">Catálogo</a>
                 <a href="{{ url_for('mercados') }}">Mercados</a>
-                <a href="{{ url_for('registro_locatarios') }}">Registro</a>
+                <a href="{{ url_for('registro_locatarios') }}">Registro Locatarios</a>
                 <a href="{{ url_for('usar_qr') }}">Usar QR</a>
                 <a href="{{ url_for('carrito') }}">Carrito</a>
                 <a href="{{ url_for('admin_locatarios') }}">Admin</a>
@@ -23,10 +23,13 @@
 
     <main class="container text-center">
         <h1 class="my-5">Bienvenido a <strong>Market Puebla</strong></h1>
-        <p class="lead mb-5">Explora los mercados, productos y beneficios del subsidio QR.</p>
+        <p class="lead mb-5">Conoce nuestros productos, mercados y aprovecha los subsidios QR disponibles.</p>
 
-        <a href="{{ url_for('catalogo') }}" class="btn">Ir al catálogo</a>
-        <a href="{{ url_for('mercados') }}" class="btn">Conocer Mercados</a>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+            <a href="{{ url_for('catalogo') }}" class="btn">Ver Catálogo</a>
+            <a href="{{ url_for('mercados') }}" class="btn">Ver Mercados</a>
+            <a href="{{ url_for('usar_qr') }}" class="btn">Usar mi Subsidio</a>
+        </div>
     </main>
 
     <footer class="footer">
