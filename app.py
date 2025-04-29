@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -13,6 +13,20 @@ def catalogo():
 @app.route('/mercados')
 def mercados():
     return render_template('mercados.html')
+
+@app.route('/registro-locatarios', methods=['GET', 'POST'])
+def registro_locatarios():
+    if request.method == 'POST':
+        # Aquí puedes capturar los datos enviados
+        nombre = request.form['nombre']
+        mercado = request.form['mercado']
+        productos = request.form['productos']
+        telefono = request.form['telefono']
+        correo = request.form['correo']
+        # Aquí luego podemos guardar esos datos en una base de datos
+        print(f"Registro recibido: {nombre}, {mercado}, {productos}, {telefono}, {correo}")
+        return redirect(url_for('home'))  # Después de registrar, regresa al inicio
+    return render_template('registro-locatarios.html')
 
 if __name__ == '__main__':
     import os
