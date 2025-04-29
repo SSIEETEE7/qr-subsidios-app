@@ -17,7 +17,7 @@
         }
         header {
             background-color: #800000;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
         }
         header img {
@@ -26,51 +26,54 @@
         }
         header h1 {
             margin: 10px 0 0;
-            font-size: 32px;
+            font-size: 40px;
             color: #ffffff;
         }
         main {
-            padding: 30px 20px;
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: auto;
         }
         .section {
-            margin: 30px auto;
-            max-width: 800px;
-            border-bottom: 1px solid #dddddd;
-            padding-bottom: 30px;
+            margin-bottom: 60px;
             text-align: center;
         }
         .section img {
-            width: 80px;
-            margin-bottom: 15px;
-        }
-        .section h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #800000;
-        }
-        .section p {
-            font-size: 16px;
-            line-height: 1.6;
+            width: 100px;
             margin-bottom: 20px;
         }
+        .section h2 {
+            font-size: 28px;
+            color: #800000;
+            margin-bottom: 15px;
+        }
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         form {
-            margin-top: 40px;
+            margin-top: 60px;
             text-align: center;
         }
         input[type="text"] {
-            padding: 10px;
-            width: 250px;
+            padding: 12px;
+            width: 300px;
             border: 1px solid #cccccc;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-right: 10px;
+            font-size: 16px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #800000;
             color: white;
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
         }
         button:hover {
@@ -80,26 +83,27 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 30px;
+            gap: 20px;
+            margin-top: 40px;
         }
         .qr-box {
             background: #f9f9f9;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
             text-align: center;
         }
         .qr-box img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
         }
         footer {
             background-color: #800000;
             color: #ffffff;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             margin-top: 50px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -115,43 +119,43 @@
     <div class="section">
         <img src="{{ url_for('static', filename='img/icono_catalogo.png') }}" alt="Catálogo Icono">
         <h2>Catálogo de Productos y Servicios</h2>
-        <p>Explora productos frescos, servicios locales y mercados tradicionales.</p>
-        <img src="{{ url_for('static', filename='img/foto_catalogo_real.jpg') }}" alt="Foto Mercado">
+        <p>Explora productos frescos, servicios locales y mercados tradicionales de Puebla.</p>
+        <img src="{{ url_for('static', filename='img/foto_catalogo_real.jpg') }}" alt="Foto Mercado" style="width:100%; max-width:600px;">
     </div>
 
     <div class="section">
         <img src="{{ url_for('static', filename='img/icono_locatario.png') }}" alt="Locatario Icono">
         <h2>Registro de Locatarios</h2>
-        <p>Locatarios podrán gestionar sus ventas y productos desde la plataforma.</p>
-        <img src="{{ url_for('static', filename='img/foto_locatario_real.jpg') }}" alt="Foto Locatario">
+        <p>Locatarios pueden gestionar sus ventas y productos desde la plataforma de forma sencilla.</p>
+        <img src="{{ url_for('static', filename='img/foto_locatario_real.jpg') }}" alt="Foto Locatario" style="width:100%; max-width:600px;">
     </div>
 
     <div class="section">
         <img src="{{ url_for('static', filename='img/icono_carrito.png') }}" alt="Carrito Icono">
         <h2>Carrito de Compras</h2>
-        <p>Compra combinada de productos de diferentes locatarios de forma segura.</p>
-        <img src="{{ url_for('static', filename='img/foto_carrito_real.jpg') }}" alt="Foto Carrito">
+        <p>Compra de productos de varios locatarios de manera fácil, segura y rápida.</p>
+        <img src="{{ url_for('static', filename='img/foto_carrito_real.jpg') }}" alt="Foto Carrito" style="width:100%; max-width:600px;">
     </div>
 
     <div class="section">
         <img src="{{ url_for('static', filename='img/icono_qr.png') }}" alt="QR Icono">
-        <h2>Beneficios Sociales mediante Código QR</h2>
-        <p>Usuarios podrán usar sus subsidios escaneando un QR de forma rápida y segura.</p>
-        <img src="{{ url_for('static', filename='img/foto_qr_real.jpg') }}" alt="Foto QR">
+        <h2>Subsidios Sociales mediante Código QR</h2>
+        <p>Beneficiarios podrán usar su saldo social escaneando un QR en los mercados afiliados.</p>
+        <img src="{{ url_for('static', filename='img/foto_qr_real.jpg') }}" alt="Foto QR" style="width:100%; max-width:600px;">
     </div>
 
     <div class="section">
         <img src="{{ url_for('static', filename='img/icono_eventos.png') }}" alt="Eventos Icono">
         <h2>Noticias, Eventos y Avisos</h2>
-        <p>Información actualizada de eventos culturales, promociones y noticias oficiales.</p>
-        <img src="{{ url_for('static', filename='img/foto_evento_real.jpg') }}" alt="Foto Evento">
+        <p>Accede a eventos culturales, noticias relevantes y promociones de los mercados.</p>
+        <img src="{{ url_for('static', filename='img/foto_evento_real.jpg') }}" alt="Foto Evento" style="width:100%; max-width:600px;">
     </div>
 
     <div class="section">
         <img src="{{ url_for('static', filename='img/icono_mapa.png') }}" alt="Mapa Icono">
         <h2>Geolocalización de Mercados</h2>
-        <p>Encuentra rápidamente el mercado más cercano a tu ubicación.</p>
-        <img src="{{ url_for('static', filename='img/foto_mapa_real.jpg') }}" alt="Foto Mapa">
+        <p>Encuentra rápidamente los mercados cercanos a tu ubicación gracias a nuestra geolocalización integrada.</p>
+        <img src="{{ url_for('static', filename='img/foto_mapa_real.jpg') }}" alt="Foto Mapa" style="width:100%; max-width:600px;">
     </div>
 
     <form method="POST" action="/generate_qr">
@@ -169,7 +173,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <p style="text-align:center; margin-top:20px;">Aún no hay QR generados.</p>
+    <p style="text-align:center; margin-top:30px;">Aún no hay QR generados.</p>
     {% endif %}
 
 </main>
