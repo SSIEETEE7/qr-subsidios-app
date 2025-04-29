@@ -14,6 +14,15 @@ def catalogo():
 def mercados():
     return render_template('mercados.html')
 
+@app.route('/usar-qr', methods=['GET', 'POST'])
+def usar_qr():
+    saldo = None
+    if request.method == 'POST':
+        codigo_qr = request.form['codigo_qr']
+        # Aquí más adelante validaremos que el QR sea válido
+        saldo = 450  # Simulamos saldo fijo
+    return render_template('usar-qr.html', saldo=saldo)
+
 @app.route('/registro-locatarios', methods=['GET', 'POST'])
 def registro_locatarios():
     if request.method == 'POST':
