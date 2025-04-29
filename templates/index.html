@@ -1,1 +1,36 @@
-<!-- index.html generado -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio | Market Puebla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between">
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <div>
+                <a href="{{ url_for('catalogo') }}">Catálogo</a>
+                <a href="{{ url_for('mercados') }}">Mercados</a>
+                <a href="{{ url_for('registro_locatarios') }}">Registro</a>
+                <a href="{{ url_for('usar_qr') }}">Usar QR</a>
+                <a href="{{ url_for('carrito') }}">Carrito</a>
+                <a href="{{ url_for('admin_locatarios') }}">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container text-center">
+        <h1 class="my-5">Bienvenido a <strong>Market Puebla</strong></h1>
+        <p class="lead mb-5">Explora los mercados, productos y beneficios del subsidio QR.</p>
+
+        <a href="{{ url_for('catalogo') }}" class="btn">Ir al catálogo</a>
+        <a href="{{ url_for('mercados') }}" class="btn">Conocer Mercados</a>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Market Puebla - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
