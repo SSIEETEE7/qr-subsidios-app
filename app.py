@@ -37,6 +37,19 @@ def registro_locatarios():
         return redirect(url_for('home'))  # Después de registrar, regresa al inicio
     return render_template('registro-locatarios.html')
 
+@app.route('/registro-locatarios', methods=['GET', 'POST'])
+def registro_locatarios():
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        mercado = request.form['mercado']
+        productos = request.form['productos']
+        telefono = request.form['telefono']
+        correo = request.form['correo']
+        print(f"Registro recibido: {nombre}, {mercado}, {productos}, {telefono}, {correo}")
+        return render_template('registro-exitoso.html')  # Mostrar mensaje de éxito
+    return render_template('registro-locatarios.html')
+
+
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
