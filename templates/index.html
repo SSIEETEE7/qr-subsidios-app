@@ -31,29 +31,38 @@
         }
         main {
             padding: 40px 5%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: auto;
         }
         .section {
-            margin-bottom: 60px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+            gap: 30px;
         }
-        .section img {
-            width: 100px;
-            margin-bottom: 20px;
+        .text-content {
+            flex: 1 1 500px;
+            text-align: left;
         }
-        .section h2 {
+        .text-content h2 {
             font-size: 28px;
             color: #800000;
             margin-bottom: 15px;
         }
-        .section p {
+        .text-content p {
             font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.6;
+        }
+        .image-content {
+            flex: 1 1 500px;
+            text-align: center;
+        }
+        .image-content img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
         }
         form {
             margin-top: 60px;
@@ -105,6 +114,18 @@
             margin-top: 50px;
             font-size: 14px;
         }
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .text-content, .image-content {
+                flex: 1 1 100%;
+            }
+            .text-content {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -117,45 +138,63 @@
 <main>
 
     <div class="section">
-        <img src="{{ url_for('static', filename='img/icono_catalogo.png') }}" alt="Catálogo Icono">
-        <h2>Catálogo de Productos y Servicios</h2>
-        <p>Explora productos frescos, servicios locales y mercados tradicionales de Puebla.</p>
-        <img src="{{ url_for('static', filename='img/foto_catalogo_real.jpg') }}" alt="Foto Mercado" style="width:100%; max-width:600px;">
+        <div class="text-content">
+            <h2>Catálogo de Productos y Servicios</h2>
+            <p>Explora productos frescos, servicios locales y mercados tradicionales de Puebla.</p>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/foto_catalogo_real.jpg') }}" alt="Foto Mercado">
+        </div>
     </div>
 
     <div class="section">
-        <img src="{{ url_for('static', filename='img/icono_locatario.png') }}" alt="Locatario Icono">
-        <h2>Registro de Locatarios</h2>
-        <p>Locatarios pueden gestionar sus ventas y productos desde la plataforma de forma sencilla.</p>
-        <img src="{{ url_for('static', filename='img/foto_locatario_real.jpg') }}" alt="Foto Locatario" style="width:100%; max-width:600px;">
+        <div class="text-content">
+            <h2>Registro de Locatarios</h2>
+            <p>Locatarios pueden gestionar sus ventas y productos desde la plataforma de forma sencilla.</p>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/foto_locatario_real.jpg') }}" alt="Foto Locatario">
+        </div>
     </div>
 
     <div class="section">
-        <img src="{{ url_for('static', filename='img/icono_carrito.png') }}" alt="Carrito Icono">
-        <h2>Carrito de Compras</h2>
-        <p>Compra de productos de varios locatarios de manera fácil, segura y rápida.</p>
-        <img src="{{ url_for('static', filename='img/foto_carrito_real.jpg') }}" alt="Foto Carrito" style="width:100%; max-width:600px;">
+        <div class="text-content">
+            <h2>Carrito de Compras</h2>
+            <p>Compra de productos de varios locatarios de manera fácil, segura y rápida.</p>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/foto_carrito_real.jpg') }}" alt="Foto Carrito">
+        </div>
     </div>
 
     <div class="section">
-        <img src="{{ url_for('static', filename='img/icono_qr.png') }}" alt="QR Icono">
-        <h2>Subsidios Sociales mediante Código QR</h2>
-        <p>Beneficiarios podrán usar su saldo social escaneando un QR en los mercados afiliados.</p>
-        <img src="{{ url_for('static', filename='img/foto_qr_real.jpg') }}" alt="Foto QR" style="width:100%; max-width:600px;">
+        <div class="text-content">
+            <h2>Subsidios Sociales mediante Código QR</h2>
+            <p>Beneficiarios podrán usar su saldo social escaneando un QR en los mercados afiliados.</p>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/foto_qr_real.jpg') }}" alt="Foto QR">
+        </div>
     </div>
 
     <div class="section">
-        <img src="{{ url_for('static', filename='img/icono_eventos.png') }}" alt="Eventos Icono">
-        <h2>Noticias, Eventos y Avisos</h2>
-        <p>Accede a eventos culturales, noticias relevantes y promociones de los mercados.</p>
-        <img src="{{ url_for('static', filename='img/foto_evento_real.jpg') }}" alt="Foto Evento" style="width:100%; max-width:600px;">
+        <div class="text-content">
+            <h2>Noticias, Eventos y Avisos</h2>
+            <p>Accede a eventos culturales, noticias relevantes y promociones de los mercados.</p>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/foto_evento_real.jpg') }}" alt="Foto Evento">
+        </div>
     </div>
 
     <div class="section">
-        <img src="{{ url_for('static', filename='img/icono_mapa.png') }}" alt="Mapa Icono">
-        <h2>Geolocalización de Mercados</h2>
-        <p>Encuentra rápidamente los mercados cercanos a tu ubicación gracias a nuestra geolocalización integrada.</p>
-        <img src="{{ url_for('static', filename='img/foto_mapa_real.jpg') }}" alt="Foto Mapa" style="width:100%; max-width:600px;">
+        <div class="text-content">
+            <h2>Geolocalización de Mercados</h2>
+            <p>Encuentra rápidamente los mercados cercanos a tu ubicación gracias a nuestra geolocalización integrada.</p>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/foto_mapa_real.jpg') }}" alt="Foto Mapa">
+        </div>
     </div>
 
     <form method="POST" action="/generate_qr">
@@ -184,4 +223,3 @@
 
 </body>
 </html>
-
