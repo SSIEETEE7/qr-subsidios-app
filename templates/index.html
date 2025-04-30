@@ -5,47 +5,51 @@
   <title>Mercados que renacen: Puebla Vive</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    // Muestra los mercados según el municipio seleccionado
+    const mercadosPorMunicipio = {{ mercados|tojson }};
+    function actualizarMercados() {
+      const municipio = document.getElementById('municipio').value;
+      const mercadoSelect = document.getElementById('mercado');
+      mercadoSelect.innerHTML = '<option value="">Selecciona un mercado</option>';
+      if (mercadosPorMunicipio[municipio]) {
+        mercadosPorMunicipio[municipio].forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m;
+          opt.textContent = m;
+          mercadoSelect.appendChild(opt);
+        });
+      }
+    }
+  </script>
 </head>
 <body>
 
-  <header class="top-bar">
-    <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" alt="Gobierno de Puebla" class="logo">
+  <header class="hero-full" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
+    <div class="hero-content">
+      <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" alt="Gobierno de Puebla" class="logo" style="margin-bottom: 1rem;">
+      <h1>Mercados que renacen</h1>
+      <p>Puebla Vive</p>
+    </div>
   </header>
 
-  <nav>
-    <a href="{{ url_for('index') }}">Inicio</a>
-    <a href="{{ url_for('catalogo') }}">Catálogo</a>
-    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
-    <a href="{{ url_for('carrito') }}">Carrito</a>
-    <a href="{{ url_for('registro_locatarios') }}">Registro</a>
-    <a href="{{ url_for('usar_qr') }}">Usar QR</a>
-    <a href="{{ url_for('admin_locatarios') }}">Admin</a>
-  </nav>
+  <section class="selector-municipio">
+    <form method="POST" action="{{ url_for('mercados_view') }}">
+      <label for="municipio">Selecciona un municipio:</label>
+      <select id="municipio" name="municipio" onchange="actualizarMercados()" required>
+        <option value="">Selecciona un municipio</option>
+        {% for municipio in mercados.keys() %}
+          <option value="{{ municipio }}">{{ municipio }}</option>
+        {% endfor %}
+      </select>
 
-  <section class="hero" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
-    <div>
-      <h1>Mercados que renacen:<br>Puebla Vive</h1>
-      <p>Impulsando la economía local en cada rincón del estado</p>
-    </div>
-  </section>
+      <label for="mercado">Selecciona un mercado:</label>
+      <select id="mercado" name="mercado" required>
+        <option value="">Selecciona un mercado</option>
+      </select>
 
-  <section class="secciones">
-    {% set botones = [
-      ('catalogo', 'icono_catalogo.png', 'Catálogo'),
-      ('mercados_view', 'icono_mapa.png', 'Mercados'),
-      ('carrito', 'icono_carrito.png', 'Carrito'),
-      ('registro_locatarios', 'icono_locatario.png', 'Registro'),
-      ('usar_qr', 'icono_qr.png', 'Usar QR'),
-      ('admin_locatarios', 'icono_admin.png', 'Admin')
-    ] %}
-    {% for ruta, icono, texto in botones %}
-      <div class="seccion">
-        <a href="{{ url_for(ruta) }}">
-          <img src="{{ url_for('static', filename='img/' ~ icono) }}" alt="{{ texto }}">
-          <div>{{ texto }}</div>
-        </a>
-      </div>
-    {% endfor %}
+      <button type="submit">Ver productos</button>
+    </form>
   </section>
 
   <footer>

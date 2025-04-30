@@ -252,4 +252,74 @@ footer {
   font-size: 0.95rem;
   color: #6a1b1a;
 }
+.hero-full {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  background-color: rgba(128, 0, 0, 0.75);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin: 0.5rem 0 0;
+}
+
+.selector-municipio {
+  background-color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.selector-municipio form {
+  display: inline-block;
+  max-width: 500px;
+  text-align: left;
+}
+
+.selector-municipio label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #6a1b1a;
+}
+
+.selector-municipio select, .selector-municipio button {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.selector-municipio button {
+  background-color: #6a1b1a;
+  color: white;
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.selector-municipio button:hover {
+  background-color: #5a1312;
+}
 
