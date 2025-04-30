@@ -3,23 +3,25 @@
 {% block title %}Registro de Locatarios{% endblock %}
 
 {% block content %}
-  <h1>Registro de Locatarios</h1>
-  <form method="POST">
-    <label>Nombre:</label><br>
-    <input type="text" name="nombre" required><br><br>
+  <h1 style="text-align: center; color: #6a1b1a;">Registro de Locatarios</h1>
+  <p style="text-align: center;">Llena los siguientes campos para registrarte como locatario del programa.</p>
 
-    <label>Mercado:</label><br>
-    <input type="text" name="mercado" required><br><br>
+  <form method="POST" class="formulario">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
 
-    <label>Productos:</label><br>
-    <input type="text" name="productos" required><br><br>
+    <label>Mercado:</label>
+    <input type="text" name="mercado" required>
 
-    <label>Teléfono:</label><br>
-    <input type="text" name="telefono" required><br><br>
+    <label>Productos que ofreces:</label>
+    <input type="text" name="productos" required>
 
-    <label>Correo electrónico:</label><br>
-    <input type="email" name="correo" required><br><br>
+    <label>Teléfono:</label>
+    <input type="text" name="telefono" required>
 
-    <button type="submit">Registrar</button>
+    <label>Correo electrónico:</label>
+    <input type="email" name="correo" required>
+
+    <button type="submit" class="boton">Enviar registro</button>
   </form>
 {% endblock %}

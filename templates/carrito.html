@@ -3,17 +3,22 @@
 {% block title %}Carrito de compras{% endblock %}
 
 {% block content %}
-  <h1>Carrito de compras</h1>
+  <h1 style="text-align: center; color: #6a1b1a;">Carrito de compras</h1>
 
   {% if carrito %}
-    <ul>
+    <ul class="carrito-lista">
       {% for item in carrito %}
-        <li>{{ item.nombre }} - ${{ item.precio }}</li>
+        <li>
+          <strong>{{ item.nombre }}</strong> — ${{ item.precio }}
+        </li>
       {% endfor %}
     </ul>
-    <p><strong>Total:</strong> ${{ total }}</p>
-    <a href="{{ url_for('vaciar_carrito') }}">Vaciar carrito</a>
+
+    <div class="carrito-total">
+      <p>Total: <strong>${{ total }}</strong></p>
+      <a href="{{ url_for('vaciar_carrito') }}" class="boton">Vaciar carrito</a>
+    </div>
   {% else %}
-    <p>Tu carrito está vacío.</p>
+    <p style="text-align: center;">Tu carrito está vacío.</p>
   {% endif %}
 {% endblock %}
