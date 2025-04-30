@@ -1,22 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mercados participantes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <title>Mercados participantes | Puebla Vive</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
 
+    header {
+      background-color: #800000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    select, button {
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .productos {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .producto {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      background-color: #fff5f5;
+    }
+
+    .producto img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+
+    .producto h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #800000;
+    }
+
+    .producto p {
+      margin: 0.3rem 0;
+    }
+  </style>
 </head>
 <body>
-    <h1>Mercados Participantes</h1>
-    <ul>
-        {% for mercado in mercados %}
-            <li>
-                <strong>{{ mercado.nombre }}</strong>: {{ mercado.descripcion }}
-            </li>
+
+  <header>
+    <h1>Mercados participantes</h1>
+    <p>Explora los productos de cada mercado en Puebla</p>
+  </header>
+
+  <div class="container">
+    <form method="POST">
+      <label for="municipio">Municipio:</label>
+      <select name="municipio" id="municipio" required>
+        <option value="">Selecciona un municipio</option>
+        {% for municipio in mercados.keys() %}
+          <option value="{{ municipio }}" {% if seleccionados.municipio == municipio %}selected{% endif %}>{{ municipio }}</option>
         {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}">Inicio</a>
+      </select>
+
+      <label for="mercado">Mercado:</label>
+      <select name="mercado" id="mercado" required>
+        <option value="">Selecciona un mercado</option>
+        {% if seleccionados.municipio %}
+          {% for m in mercados[seleccionados.municipio] %}
+            <option value="{{ m }}" {% if seleccionados.mercado == m %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        {% endif %}
+      </select>
+
+      <button type="submit">Buscar productos</button>
+    </form>
+
+    {% if productos %}
+      <h2>Productos en {{ seleccionados.mercado }}</h2>
+      <div class="productos">
+        {% for producto in productos %}
+          <div class="producto">
+            <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
+            <h3>{{ producto.nombre }}</h3>
+            <p>Precio: ${{ producto.precio }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% elif seleccionados.mercado %}
+      <p>No hay productos registrados para este mercado.</p>
+    {% endif %}
+  </div>
+
 </body>
 </html>

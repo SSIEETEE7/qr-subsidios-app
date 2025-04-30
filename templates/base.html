@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Mercados que renacen{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <a href="{{ url_for('catalogo') }}">Catálogo</a>
+    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
+    <a href="{{ url_for('carrito') }}">Carrito</a>
+    <a href="{{ url_for('registro_locatarios') }}">Registro</a>
+    <a href="{{ url_for('usar_qr') }}">Usar QR</a>
+    <a href="{{ url_for('admin_locatarios') }}">Admin</a>
+  </nav>
+
+  <main class="contenido">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    © 2025 Mercados que renacen: Puebla Vive · Gobierno del Estado de Puebla
+  </footer>
+
+</body>
+</html>
