@@ -11,7 +11,7 @@
   <nav>
     <a href="{{ url_for('index') }}">Inicio</a>
     <a href="{{ url_for('catalogo') }}">Catálogo</a>
-    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
+    <a href="{{ url_for(ruta) }}"> Mercados participantes</a>
     <a href="{{ url_for('carrito') }}">Carrito</a>
     <a href="{{ url_for('registro_locatarios') }}">Registro</a>
     <a href="{{ url_for('usar_qr') }}">Usar QR</a>
@@ -28,7 +28,7 @@
   <section class="secciones">
     {% set botones = [
       ('catalogo', 'icono_catalogo.png', 'Catálogo'),
-      ('mercados', 'icono_mapa.png', 'Mercados'),
+      ('mercados_view', 'icono_mapa.png', 'Mercados'),
       ('carrito', 'icono_carrito.png', 'Carrito'),
       ('registro_locatarios', 'icono_locatario.png', 'Registro'),
       ('usar_qr', 'icono_qr.png', 'Usar QR'),
@@ -36,7 +36,7 @@
     ] %}
     {% for ruta, icono, texto in botones %}
       <div class="seccion">
-        <a href="{{ url_for(ruta) }}">
+        <a href="{{ url_for('mercados_view') }}">
           <img src="{{ url_for('static', filename='img/' ~ icono) }}" alt="{{ texto }}">
           <div>{{ texto }}</div>
         </a>
