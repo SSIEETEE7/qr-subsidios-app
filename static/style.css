@@ -322,4 +322,81 @@ footer {
 .selector-municipio button:hover {
   background-color: #5a1312;
 }
+.pantalla-completa {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contenido-principal {
+  background-color: rgba(128, 0, 0, 0.75);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.logo-grande {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.contenido-principal h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.botones-rapidos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.botones-rapidos a {
+  text-decoration: none;
+  background-color: #fff;
+  color: #6a1b1a;
+  padding: 0.7rem;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.botones-rapidos img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.3rem;
+}
+
+.selector select,
+.selector button {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.7rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.selector button {
+  background-color: #fff;
+  color: #6a1b1a;
+  font-weight: bold;
+  cursor: pointer;
+}
 

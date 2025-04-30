@@ -6,7 +6,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script>
-    // Muestra los mercados según el municipio seleccionado
     const mercadosPorMunicipio = {{ mercados|tojson }};
     function actualizarMercados() {
       const municipio = document.getElementById('municipio').value;
@@ -25,36 +24,34 @@
 </head>
 <body>
 
-  <header class="hero-full" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
-    <div class="hero-content">
-      <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" alt="Gobierno de Puebla" class="logo" style="margin-bottom: 1rem;">
-      <h1>Mercados que renacen</h1>
-      <p>Puebla Vive</p>
+  <section class="pantalla-completa" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
+    <div class="contenido-principal">
+      <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" class="logo-grande" alt="Logo Gobierno Puebla">
+      <h1>Mercados que renacen<br><span style="font-weight: 400;">Puebla Vive</span></h1>
+
+      <div class="botones-rapidos">
+        <a href="{{ url_for('catalogo') }}"><img src="{{ url_for('static', filename='img/icono_catalogo.png') }}"><span>Catálogo</span></a>
+        <a href="{{ url_for('usar_qr') }}"><img src="{{ url_for('static', filename='img/icono_qr.png') }}"><span>QR</span></a>
+        <a href="{{ url_for('carrito') }}"><img src="{{ url_for('static', filename='img/icono_carrito.png') }}"><span>Carrito</span></a>
+        <a href="{{ url_for('registro_locatarios') }}"><img src="{{ url_for('static', filename='img/icono_locatario.png') }}"><span>Registro</span></a>
+      </div>
+
+      <form method="POST" action="{{ url_for('mercados_view') }}" class="selector">
+        <select id="municipio" name="municipio" onchange="actualizarMercados()" required>
+          <option value="">Selecciona un municipio</option>
+          {% for municipio in mercados.keys() %}
+            <option value="{{ municipio }}">{{ municipio }}</option>
+          {% endfor %}
+        </select>
+
+        <select id="mercado" name="mercado" required>
+          <option value="">Selecciona un mercado</option>
+        </select>
+
+        <button type="submit">Ver productos</button>
+      </form>
     </div>
-  </header>
-
-  <section class="selector-municipio">
-    <form method="POST" action="{{ url_for('mercados_view') }}">
-      <label for="municipio">Selecciona un municipio:</label>
-      <select id="municipio" name="municipio" onchange="actualizarMercados()" required>
-        <option value="">Selecciona un municipio</option>
-        {% for municipio in mercados.keys() %}
-          <option value="{{ municipio }}">{{ municipio }}</option>
-        {% endfor %}
-      </select>
-
-      <label for="mercado">Selecciona un mercado:</label>
-      <select id="mercado" name="mercado" required>
-        <option value="">Selecciona un mercado</option>
-      </select>
-
-      <button type="submit">Ver productos</button>
-    </form>
   </section>
-
-  <footer>
-    © 2025 Mercados que renacen: Puebla Vive · Gobierno del Estado de Puebla
-  </footer>
 
 </body>
 </html>
