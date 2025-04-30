@@ -11,7 +11,7 @@
   <nav>
     <a href="{{ url_for('index') }}">Inicio</a>
     <a href="{{ url_for('catalogo') }}">Catálogo</a>
-    <a href="{{ url_for(ruta) }}"> Mercados participantes</a>
+    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
     <a href="{{ url_for('carrito') }}">Carrito</a>
     <a href="{{ url_for('registro_locatarios') }}">Registro</a>
     <a href="{{ url_for('usar_qr') }}">Usar QR</a>
@@ -36,7 +36,7 @@
     ] %}
     {% for ruta, icono, texto in botones %}
       <div class="seccion">
-        <a href="{{ url_for('mercados_view') }}">
+        <a href="{{ url_for(ruta) }}">
           <img src="{{ url_for('static', filename='img/' ~ icono) }}" alt="{{ texto }}">
           <div>{{ texto }}</div>
         </a>
@@ -50,4 +50,3 @@
 
 </body>
 </html>
-
