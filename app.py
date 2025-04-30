@@ -118,3 +118,6 @@ def usar_qr():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    print(app.url_map)
+
+
