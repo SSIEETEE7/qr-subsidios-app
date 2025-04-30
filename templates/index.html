@@ -24,34 +24,78 @@
 </head>
 <body>
 
-  <section class="pantalla-completa" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
-    <div class="contenido-principal">
-      <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" class="logo-grande" alt="Logo Gobierno Puebla">
-      <h1>Mercados que renacen<br><span style="font-weight: 400;">Puebla Vive</span></h1>
+  <!-- 🟥 HERO PRINCIPAL -->
+  <header class="hero-full" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
+    <div class="hero-title">
+      <h1>Mercados que renacen:<br><span>Puebla Vive</span></h1>
+    </div>
+  </header>
 
-      <div class="botones-rapidos">
-        <a href="{{ url_for('catalogo') }}"><img src="{{ url_for('static', filename='img/icono_catalogo.png') }}"><span>Catálogo</span></a>
-        <a href="{{ url_for('usar_qr') }}"><img src="{{ url_for('static', filename='img/icono_qr.png') }}"><span>QR</span></a>
-        <a href="{{ url_for('carrito') }}"><img src="{{ url_for('static', filename='img/icono_carrito.png') }}"><span>Carrito</span></a>
-        <a href="{{ url_for('registro_locatarios') }}"><img src="{{ url_for('static', filename='img/icono_locatario.png') }}"><span>Registro</span></a>
-      </div>
-
-      <form method="POST" action="{{ url_for('mercados_view') }}" class="selector">
-        <select id="municipio" name="municipio" onchange="actualizarMercados()" required>
-          <option value="">Selecciona un municipio</option>
-          {% for municipio in mercados.keys() %}
-            <option value="{{ municipio }}">{{ municipio }}</option>
-          {% endfor %}
-        </select>
-
-        <select id="mercado" name="mercado" required>
-          <option value="">Selecciona un mercado</option>
-        </select>
-
-        <button type="submit">Ver productos</button>
-      </form>
+  <!-- 🟧 BOTONES GRANDES CON DESCRIPCIÓN -->
+  <section class="funciones">
+    <div class="funcion">
+      <a href="{{ url_for('catalogo') }}">
+        <img src="{{ url_for('static', filename='img/icono_catalogo.png') }}">
+        <h3>Catálogo</h3>
+        <p>Explora productos y servicios por mercado.</p>
+      </a>
+    </div>
+    <div class="funcion">
+      <a href="{{ url_for('registro_locatarios') }}">
+        <img src="{{ url_for('static', filename='img/icono_locatario.png') }}">
+        <h3>Registro</h3>
+        <p>Registra tu negocio y administra tus productos.</p>
+      </a>
+    </div>
+    <div class="funcion">
+      <a href="{{ url_for('carrito') }}">
+        <img src="{{ url_for('static', filename='img/icono_carrito.png') }}">
+        <h3>Carrito</h3>
+        <p>Compra por mercado o locatario.</p>
+      </a>
+    </div>
+    <div class="funcion">
+      <a href="{{ url_for('usar_qr') }}">
+        <img src="{{ url_for('static', filename='img/icono_qr.png') }}">
+        <h3>QR Subsidio</h3>
+        <p>Canjea tu Canasta Básica con QR único.</p>
+      </a>
     </div>
   </section>
+
+  <!-- 🟦 FUNCIONES CLAVE DEL PROGRAMA -->
+  <section class="descripcion">
+    <h2>¿Qué puedes hacer en la plataforma?</h2>
+    <ul>
+      <li>📦 Catálogo de productos y servicios por mercado.</li>
+      <li>📝 Registro de locatarios con sistema de administración.</li>
+      <li>🛒 Carrito por mercado y locatario.</li>
+      <li>🔐 Control de subsidios sociales mediante código QR.</li>
+      <li>📍 Geolocalización, noticias, eventos y avisos oficiales.</li>
+    </ul>
+  </section>
+
+  <!-- 🟩 MENÚ DE MUNICIPIO Y MERCADO -->
+  <section class="selector-final">
+    <form method="POST" action="{{ url_for('mercados_view') }}">
+      <select id="municipio" name="municipio" onchange="actualizarMercados()" required>
+        <option value="">Selecciona un municipio</option>
+        {% for municipio in mercados.keys() %}
+          <option value="{{ municipio }}">{{ municipio }}</option>
+        {% endfor %}
+      </select>
+
+      <select id="mercado" name="mercado" required>
+        <option value="">Selecciona un mercado</option>
+      </select>
+
+      <button type="submit">Ir al mercado</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Mercados que renacen · Gobierno del Estado de Puebla
+  </footer>
 
 </body>
 </html>
