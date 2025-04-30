@@ -232,3 +232,24 @@ footer {
 .formulario .boton:hover {
   background-color: #811e1d;
 }
+.qr-generado {
+  text-align: center;
+  margin: 2rem auto;
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.qr-generado img {
+  width: 220px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.qr-generado p {
+  font-size: 0.95rem;
+  color: #6a1b1a;
+}
+

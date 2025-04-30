@@ -1,22 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Usar subsidio QR{% endblock %}
+{% block title %}Subsidio QR | Puebla Vive{% endblock %}
 
 {% block content %}
-  <h1>Usar subsidio QR</h1>
-  <form method="POST">
-    <label for="codigo_qr">Introduce tu código QR:</label><br>
-    <input type="text" name="codigo_qr" required><br><br>
+  <h1 style="text-align: center; color: #6a1b1a;">Tu código QR de subsidio</h1>
+  <p style="text-align: center;">Este código puede usarse en mercados participantes para canjear productos con valor de <strong>$450</strong>.</p>
 
-    <input type="checkbox" name="usar_saldo" value="si"> Usar saldo de $450<br><br>
-    <button type="submit">Canjear</button>
-  </form>
-
-  {% if saldo %}
-    <p>Tu saldo disponible: ${{ saldo }}</p>
-  {% endif %}
-
-  {% if mensaje %}
-    <p><strong>{{ mensaje }}</strong></p>
-  {% endif %}
+  <div class="qr-generado">
+    <img src="{{ url_for('static', filename='img/qr/' ~ qr_file) }}" alt="Código QR generado">
+    <p><strong>{{ qr_content }}</strong></p>
+  </div>
 {% endblock %}
