@@ -5,104 +5,20 @@
   <title>Mercados que renacen: Puebla Vive</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
-    nav {
-      background-color: #5a0000;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 600;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 450px;
-      background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      background-color: rgba(128, 0, 0, 0.85);
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      background-color: rgba(90, 0, 0, 0.8);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-    }
-    .secciones {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 2rem;
-      gap: 2rem;
-    }
-    .seccion {
-      width: 150px;
-      background-color: white;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: 0.3s;
-    }
-    .seccion:hover {
-      transform: scale(1.05);
-    }
-    .seccion img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 0.5rem;
-    }
-    .seccion a {
-      text-decoration: none;
-      color: #800000;
-      font-weight: bold;
-    }
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-  </style>
 </head>
 <body>
 
   <nav>
     <a href="{{ url_for('index') }}">Inicio</a>
     <a href="{{ url_for('catalogo') }}">Catálogo</a>
-    <a href="{{ url_for('mercados') }}">Mercados participantes</a>
+    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
     <a href="{{ url_for('carrito') }}">Carrito</a>
     <a href="{{ url_for('registro_locatarios') }}">Registro</a>
     <a href="{{ url_for('usar_qr') }}">Usar QR</a>
     <a href="{{ url_for('admin_locatarios') }}">Admin</a>
   </nav>
 
-  <section class="hero">
+  <section class="hero" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
     <div>
       <h1>Mercados que renacen:<br>Puebla Vive</h1>
       <p>Impulsando la economía local en cada rincón del estado</p>
@@ -110,42 +26,22 @@
   </section>
 
   <section class="secciones">
-    <div class="seccion">
-      <a href="{{ url_for('catalogo') }}">
-        <img src="{{ url_for('static', filename='img/icono_catalogo.png') }}" alt="Catálogo">
-        <div>Catálogo</div>
-      </a>
-    </div>
-    <div class="seccion">
-      <a href="{{ url_for('mercados') }}">
-        <img src="{{ url_for('static', filename='img/icono_mapa.png') }}" alt="Mercados">
-        <div>Mercados</div>
-      </a>
-    </div>
-    <div class="seccion">
-      <a href="{{ url_for('carrito') }}">
-        <img src="{{ url_for('static', filename='img/icono_carrito.png') }}" alt="Carrito">
-        <div>Carrito</div>
-      </a>
-    </div>
-    <div class="seccion">
-      <a href="{{ url_for('registro_locatarios') }}">
-        <img src="{{ url_for('static', filename='img/icono_locatario.png') }}" alt="Registro">
-        <div>Registro</div>
-      </a>
-    </div>
-    <div class="seccion">
-      <a href="{{ url_for('usar_qr') }}">
-        <img src="{{ url_for('static', filename='img/icono_qr.png') }}" alt="QR">
-        <div>Usar QR</div>
-      </a>
-    </div>
-    <div class="seccion">
-      <a href="{{ url_for('admin_locatarios') }}">
-        <img src="{{ url_for('static', filename='img/icono_admin.png') }}" alt="Admin">
-        <div>Admin</div>
-      </a>
-    </div>
+    {% set botones = [
+      ('catalogo', 'icono_catalogo.png', 'Catálogo'),
+      ('mercados', 'icono_mapa.png', 'Mercados'),
+      ('carrito', 'icono_carrito.png', 'Carrito'),
+      ('registro_locatarios', 'icono_locatario.png', 'Registro'),
+      ('usar_qr', 'icono_qr.png', 'Usar QR'),
+      ('admin_locatarios', 'icono_admin.png', 'Admin')
+    ] %}
+    {% for ruta, icono, texto in botones %}
+      <div class="seccion">
+        <a href="{{ url_for(ruta) }}">
+          <img src="{{ url_for('static', filename='img/' ~ icono) }}" alt="{{ texto }}">
+          <div>{{ texto }}</div>
+        </a>
+      </div>
+    {% endfor %}
   </section>
 
   <footer>
