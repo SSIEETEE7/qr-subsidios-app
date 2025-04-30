@@ -3,82 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Mercados participantes | Puebla Vive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
-    }
-
-    header {
-      background-color: #800000;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    select, button {
-      padding: 0.6rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    .productos {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-
-    .producto {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      background-color: #fff5f5;
-    }
-
-    .producto img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-bottom: 0.5rem;
-    }
-
-    .producto h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #800000;
-    }
-
-    .producto p {
-      margin: 0.3rem 0;
-    }
-  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Mercados participantes</h1>
-    <p>Explora los productos de cada mercado en Puebla</p>
+  <header class="top-bar">
+    <img src="{{ url_for('static', filename='img/logo_puebla.png') }}" alt="Gobierno de Puebla" class="logo">
   </header>
 
-  <div class="container">
+  <nav>
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <a href="{{ url_for('catalogo') }}">Catálogo</a>
+    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
+    <a href="{{ url_for('carrito') }}">Carrito</a>
+    <a href="{{ url_for('registro_locatarios') }}">Registro</a>
+    <a href="{{ url_for('usar_qr') }}">Usar QR</a>
+    <a href="{{ url_for('admin_locatarios') }}">Admin</a>
+  </nav>
+
+  <main class="contenido">
+    <h1>Explora los mercados participantes</h1>
     <form method="POST">
       <label for="municipio">Municipio:</label>
-      <select name="municipio" id="municipio" required>
+      <select name="municipio" required>
         <option value="">Selecciona un municipio</option>
         {% for municipio in mercados.keys() %}
           <option value="{{ municipio }}" {% if seleccionados.municipio == municipio %}selected{% endif %}>{{ municipio }}</option>
@@ -86,7 +34,7 @@
       </select>
 
       <label for="mercado">Mercado:</label>
-      <select name="mercado" id="mercado" required>
+      <select name="mercado" required>
         <option value="">Selecciona un mercado</option>
         {% if seleccionados.municipio %}
           {% for m in mercados[seleccionados.municipio] %}
@@ -112,7 +60,11 @@
     {% elif seleccionados.mercado %}
       <p>No hay productos registrados para este mercado.</p>
     {% endif %}
-  </div>
+  </main>
+
+  <footer>
+    © 2025 Mercados que renacen: Puebla Vive · Gobierno del Estado de Puebla
+  </footer>
 
 </body>
 </html>
