@@ -2,58 +2,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Usar código QR - Puebla Vive</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Usar QR | Puebla Vive</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-  <nav>
-    <a href="{{ url_for('index') }}">Inicio</a>
-    <a href="{{ url_for('catalogo') }}">Catálogo</a>
-    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
-    <a href="{{ url_for('carrito') }}">Carrito</a>
-    <a href="{{ url_for('registro_locatarios') }}">Registro</a>
-    <a href="{{ url_for('usar_qr') }}">Usar QR</a>
-    <a href="{{ url_for('admin_locatarios') }}">Admin</a>
-  </nav>
+  <h1 style="text-align:center; color:#6a1b1a;">Tu código QR generado</h1>
 
-  <section style="text-align: center; padding: 2rem;">
-    <h1 style="color: #6a1b1a;">Tu código QR de subsidio</h1>
-    <p>Este código puede usarse en mercados participantes para canjear productos con valor de <strong>$450</strong>.</p>
+  {% if qr_file %}
+    <div style="text-align: center; margin: 2rem;">
+      <img src="{{ url_for('static', filename='img/qr/' ~ qr_file) }}" alt="QR generado" style="width:200px;">
+      <p style="margin-top:1rem;"><strong>{{ qr_content }}</strong></p>
+    </div>
+  {% else %}
+    <p style="text-align:center;">No se ha generado un código QR aún.</p>
+  {% endif %}
 
-    {% if codigo_qr %}
-      <div style="background-color: #fff; padding: 2rem; margin: 2rem auto; width: 320px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <img src="{{ url_for('static', filename='img/qr/' + codigo_qr + '.png') }}" alt="QR generado" style="width: 100%; max-width: 250px;">
-        <p style="margin-top: 1rem; color: #6a1b1a;"><strong>{{ codigo_qr.upper() }}<br>MXN450</strong></p>
-      </div>
-    {% else %}
-      <p>No se ha generado ningún código QR aún.</p>
-    {% endif %}
-  </section>
-
-  <!-- 🔽 QR EJEMPLO PARA PRESENTACIÓN -->
   <hr style="margin: 2rem auto; width: 80%; border-top: 1px solid #ccc;">
 
-  <section style="text-align: center;">
-    <h2 style="color: #6a1b1a;">Ejemplos QR de presentación</h2>
-    <div class="qr-ejemplos">
-      <div class="qr-card">
-        <img src="{{ url_for('static', filename='img/qr/erik_qr.png') }}" alt="QR Erik">
-        <p><strong>Erik</strong><br>$450</p>
-        <a href="{{ url_for('qr_personal', nombre='erik') }}" class="ver-mas">Ver</a>
-      </div>
-      <div class="qr-card">
-        <img src="{{ url_for('static', filename='img/qr/victor_qr.png') }}" alt="QR Victor">
-        <p><strong>Victor</strong><br>$200</p>
-        <a href="{{ url_for('qr_personal', nombre='victor') }}" class="ver-mas">Ver</a>
-      </div>
-    </div>
-  </section>
+  <h2 style="text-align: center; color: #6a1b1a;">Ejemplos QR de presentación</h2>
 
-  <footer>
-    © 2025 Mercados que renacen: Puebla Vive · Gobierno del Estado de Puebla
-  </footer>
+  <div class="qr-ejemplos">
+    <div class="qr-card">
+      <img src="{{ url_for('static', filename='img/qr/erik_qr.png') }}" alt="QR Erik">
+      <p><strong>Erik</strong><br>$450</p>
+      <a href="{{ url_for('qr_personal', nombre='erik') }}" class="ver-mas">Ver</a>
+    </div>
+    <div class="qr-card">
+      <img src="{{ url_for('static', filename='img/qr/victor_qr.png') }}" alt="QR Victor">
+      <p><strong>Victor</strong><br>$200</p>
+      <a href="{{ url_for('qr_personal', nombre='victor') }}" class="ver-mas">Ver</a>
+    </div>
+  </div>
 
 </body>
 </html>
