@@ -526,4 +526,75 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
+.qr-mensaje {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.qr-mensaje h1 {
+  color: #6a1b1a;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.qr-mensaje p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.qr-mensaje h2 {
+  color: #800000;
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.qr-mensaje .lema {
+  font-style: italic;
+  color: #444;
+  margin-top: 1rem;
+}
+.qr-ejemplos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.qr-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  width: 180px;
+}
+
+.qr-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.qr-card p {
+  margin: 0.5rem 0;
+  color: #6a1b1a;
+}
+
+.qr-card .ver-mas {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background-color: #6a1b1a;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
 
