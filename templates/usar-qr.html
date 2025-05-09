@@ -2,54 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Usar QR | Puebla Vive</title>
+  <title>QR Subsidio</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-  <h1 style="text-align:center; color:#6a1b1a;">Tu código QR generado</h1>
-
-  {% if qr_file %}
-    <div style="text-align: center; margin: 2rem;">
-      <img src="{{ url_for('static', filename='img/qr/' ~ qr_file) }}" alt="QR generado" style="width:200px;">
-      <p style="margin-top:1rem;"><strong>{{ qr_content }}</strong></p>
-    </div>
-  {% else %}
-    <p style="text-align:center;">No se ha generado un código QR aún.</p>
-  {% endif %}
-  <!-- 🔽 QR EJEMPLOS PARA PRESENTACIÓN CON URL ESCANEABLE -->
-<hr style="margin: 2rem auto; width: 80%; border-top: 1px solid #ccc;">
-
-<h2 style="text-align: center; color: #6a1b1a;">Ejemplos QR de presentación</h2>
-
-<div class="qr-ejemplos">
-  <div class="qr-card">
-    <img src="{{ url_for('static', filename='img/qr/erik_qr_web.png') }}" alt="QR Erik">
-    <p><strong>Erik</strong><br>$450</p>
-    <a href="https://mercadospuebla.onrender.com/qr/erik" class="ver-mas" target="_blank">Ver</a>
-  </div>
-  <div class="qr-card">
-    <img src="{{ url_for('static', filename='img/qr/victor_qr_web.png') }}" alt="QR Victor">
-    <p><strong>Victor</strong><br>$200</p>
-    <a href="https://mercadospuebla.onrender.com/qr/victor" class="ver-mas" target="_blank">Ver</a>
-  </div>
-</div>
-
-
-  <hr style="margin: 2rem auto; width: 80%; border-top: 1px solid #ccc;">
-
-  <h2 style="text-align: center; color: #6a1b1a;">Ejemplos QR de presentación</h2>
+  <h1 style="text-align:center; color:#6a1b1a;">Ejemplos QR de presentación</h1>
 
   <div class="qr-ejemplos">
     <div class="qr-card">
-      <img src="{{ url_for('static', filename='img/qr/erik_qr.png') }}" alt="QR Erik">
+      <img src="{{ url_for('static', filename='img/qr/erik_qr_web.png') }}" alt="QR Erik">
       <p><strong>Erik</strong><br>$450</p>
-      <a href="{{ url_for('qr_personal', nombre='erik') }}" class="ver-mas">Ver</a>
+      <a href="{{ url_for('qr_personal', nombre='erik') }}" class="ver-mas" target="_blank">Ver</a>
     </div>
     <div class="qr-card">
-      <img src="{{ url_for('static', filename='img/qr/victor_qr.png') }}" alt="QR Victor">
+      <img src="{{ url_for('static', filename='img/qr/victor_qr_web.png') }}" alt="QR Victor">
       <p><strong>Victor</strong><br>$200</p>
-      <a href="{{ url_for('qr_personal', nombre='victor') }}" class="ver-mas">Ver</a>
+      <a href="{{ url_for('qr_personal', nombre='victor') }}" class="ver-mas" target="_blank">Ver</a>
     </div>
   </div>
 
