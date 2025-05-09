@@ -606,8 +606,9 @@ body:not(.index) .hero-full {
 }
 /* Ajustes SOLO para la página principal */
 .index-page .hero-full {
-  height: 640px;
+  height: 50vh; /* 50% del alto de la pantalla del usuario */
 }
+
 
 .index-page .hero-title {
   background-color: rgba(100, 100, 100, 0.6);
