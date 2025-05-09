@@ -112,5 +112,20 @@ def mercados_view():
 
     return render_template('mercados.html', mercados=mercados, seleccionados=seleccionados, productos=productos)
 
+
+@app.route('/qr/<nombre>')
+def qr_personal(nombre):
+    nombre = nombre.lower()
+    saldos = {
+        'erik': 450,
+        'victor': 200
+    }
+    saldo = saldos.get(nombre)
+    if saldo is None:
+        return "QR no válido o beneficiario no encontrado", 404
+
+    return render_template('qr-personal.html', nombre=nombre.capitalize(), saldo=saldo)
+
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>QR de {{ nombre }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .qr-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #800000;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .monto {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: #800000;
+    }
+
+    footer {
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="qr-container">
+    <h1>Hola {{ nombre }}</h1>
+    <p>Tu saldo disponible es de:</p>
+    <div class="monto">$ {{ saldo }}</div>
+    <p>Puedes utilizarlo en cualquiera de los mercados insignia que participan en nuestro programa:</p>
+    <p><strong>“Mercados que Renacen: Puebla Vive”</strong></p>
+    <p>Gracias por seguir confiando en nosotros.</p>
+    <p><em>Por amor a Puebla.</em></p>
+  </div>
+
+  <footer>
+    © 2025 Gobierno del Estado de Puebla
+  </footer>
+
+</body>
+</html>
