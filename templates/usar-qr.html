@@ -2,25 +2,45 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>QR Subsidio</title>
+  <title>QR Subsidio · Mercados que renacen: Puebla Vive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-  <h1 style="text-align:center; color:#6a1b1a;">Ejemplos QR de presentación</h1>
+  <!-- 🟥 Barra de navegación -->
+  <nav>
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <a href="{{ url_for('catalogo') }}">Catálogo</a>
+    <a href="{{ url_for('mercados_view') }}">Mercados participantes</a>
+    <a href="{{ url_for('carrito') }}">Carrito</a>
+    <a href="{{ url_for('registro_locatarios') }}">Registro</a>
+    <a href="{{ url_for('usar_qr') }}">QR Subsidio</a>
+    <a href="{{ url_for('admin_locatarios') }}">Admin</a>
+  </nav>
 
-  <div class="qr-ejemplos">
-    <div class="qr-card">
-      <img src="{{ url_for('static', filename='img/qr/erik_qr_web.png') }}" alt="QR Erik">
-      <p><strong>Erik</strong><br>$450</p>
-      <a href="{{ url_for('qr_personal', nombre='erik') }}" class="ver-mas" target="_blank">Ver</a>
+  <!-- 🟫 Contenido principal -->
+  <section class="contenido">
+    <h1 class="titulo-principal">Ejemplos QR de presentación</h1>
+
+    <div class="qr-ejemplos">
+      <div class="qr-card">
+        <img src="{{ url_for('static', filename='img/qr/erik_qr_web.png') }}" alt="QR Erik">
+        <p><strong>Erik</strong><br>$450</p>
+        <a href="{{ url_for('qr_personal', nombre='erik') }}" class="ver-mas" target="_blank">Ver</a>
+      </div>
+      <div class="qr-card">
+        <img src="{{ url_for('static', filename='img/qr/victor_qr_web.png') }}" alt="QR Victor">
+        <p><strong>Victor</strong><br>$200</p>
+        <a href="{{ url_for('qr_personal', nombre='victor') }}" class="ver-mas" target="_blank">Ver</a>
+      </div>
     </div>
-    <div class="qr-card">
-      <img src="{{ url_for('static', filename='img/qr/victor_qr_web.png') }}" alt="QR Victor">
-      <p><strong>Victor</strong><br>$200</p>
-      <a href="{{ url_for('qr_personal', nombre='victor') }}" class="ver-mas" target="_blank">Ver</a>
-    </div>
-  </div>
+  </section>
+
+  <!-- 🟦 Footer -->
+  <footer>
+    © 2025 Mercados que renacen · Gobierno del Estado de Puebla
+  </footer>
 
 </body>
 </html>
