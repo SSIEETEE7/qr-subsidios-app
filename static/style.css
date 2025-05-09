@@ -253,7 +253,6 @@ footer {
   color: #6a1b1a;
 }
 .hero-full {
-  height: 100vh;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -401,7 +400,6 @@ footer {
 }
 /* 🟥 Hero principal */
 .hero-full {
-  height: 100vh;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -606,8 +604,9 @@ body:not(.index) .hero-full {
 }
 /* Ajustes SOLO para la página principal */
 .index-page .hero-full {
-  height: 50vh; /* 50% del alto de la pantalla del usuario */
+  height: 50vh !important;
 }
+
 
 
 .index-page .hero-title {
