@@ -606,7 +606,7 @@ body:not(.index) .hero-full {
 }
 /* Ajustes SOLO para la página principal */
 .index-page .hero-full {
-  height: 320px;
+  height: 640px;
 }
 
 .index-page .hero-title {
