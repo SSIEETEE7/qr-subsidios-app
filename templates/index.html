@@ -1,8 +1,10 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Mercados que renacen: Puebla Vive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script>
@@ -24,14 +26,12 @@
 </head>
 <body>
 
-  <!-- 🟥 HERO -->
   <header class="hero-full" style="background-image: url('{{ url_for('static', filename='img/hero_mercado.jpg') }}');">
     <div class="hero-title">
       <h1>Mercados que renacen:<br><span>Puebla Vive</span></h1>
     </div>
   </header>
 
-  <!-- 🟧 BOTONES PRINCIPALES -->
   <section class="funciones">
     <div class="funcion">
       <a href="{{ url_for('catalogo') }}">
@@ -63,7 +63,6 @@
     </div>
   </section>
 
-  <!-- 🟦 FUNCIONES CLAVE -->
   <section class="descripcion">
     <h2>¿Qué puedes hacer en la plataforma?</h2>
     <ul>
@@ -75,7 +74,6 @@
     </ul>
   </section>
 
-  <!-- 🟩 MENÚ DE MUNICIPIO Y MERCADO -->
   <section class="selector-final">
     <form method="POST" action="{{ url_for('mercados_view') }}">
       <select id="municipio" name="municipio" onchange="actualizarMercados()" required>

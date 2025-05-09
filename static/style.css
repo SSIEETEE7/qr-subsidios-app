@@ -1,22 +1,14 @@
+/* style.css optimizado y responsivo */
+
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #fafafa;
   margin: 0;
   padding: 0;
   color: #333;
+  background-color: #fafafa;
 }
 
-.top-bar {
-  background-color: #6a1b1a;
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 50px;
-}
-
+/* Barra superior y navegación */
 nav {
   background-color: #8b2c2b;
   padding: 0.7rem;
@@ -26,234 +18,18 @@ nav {
 nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 0.8rem;
+  margin: 0 1rem;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-.hero {
-  background-size: cover;
-  background-position: center;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding: 1rem;
-}
-
-.hero h1 {
-  font-size: 2rem;
-  background-color: rgba(128, 0, 0, 0.8);
-  padding: 1rem;
-  border-radius: 10px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.hero p {
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  background-color: rgba(90, 0, 0, 0.75);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-}
-
-.secciones {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem;
-  gap: 2rem;
-}
-
-.seccion {
-  width: 160px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: 0.3s ease;
-}
-
-.seccion:hover {
-  transform: translateY(-5px);
-}
-
-.seccion img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.5rem;
-}
-
-.seccion a {
-  text-decoration: none;
-  color: #6a1b1a;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-footer {
-  background-color: #292929;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-}
-.productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.producto {
-  width: 180px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
-}
-
-.producto:hover {
-  transform: translateY(-4px);
-}
-
-.producto img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-.producto h3 {
-  font-size: 1.1rem;
-  color: #6a1b1a;
-  margin: 0.5rem 0;
-}
-
-.producto p {
-  margin: 0.3rem 0;
-  color: #333;
-}
-
-.producto a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  background-color: #6a1b1a;
-  color: white;
-  padding: 0.4rem 0.7rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-.carrito-lista {
-  list-style: none;
-  padding: 0;
-  max-width: 500px;
-  margin: 1rem auto;
-  font-size: 1rem;
-}
-
-.carrito-lista li {
-  background: #fff;
-  margin-bottom: 0.5rem;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.carrito-total {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.boton {
-  background-color: #6a1b1a;
-  color: white;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-weight: bold;
-  font-size: 0.95rem;
-}
-.formulario {
-  max-width: 500px;
-  margin: 2rem auto;
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.formulario label {
-  font-weight: 500;
-  color: #6a1b1a;
-}
-
-.formulario input {
-  padding: 0.7rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
-
-.formulario .boton {
-  background-color: #6a1b1a;
-  color: white;
-  padding: 0.7rem;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-}
-
-.formulario .boton:hover {
-  background-color: #811e1d;
-}
-.qr-generado {
-  text-align: center;
-  margin: 2rem auto;
-  background-color: #fff;
-  padding: 2rem;
-  max-width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.qr-generado img {
-  width: 220px;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.qr-generado p {
-  font-size: 0.95rem;
-  color: #6a1b1a;
-}
+/* Hero */
 .hero-full {
-  height: 100vh;
+  height: 320px;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -265,172 +41,29 @@ footer {
   position: relative;
 }
 
-.hero-content {
-  background-color: rgba(128, 0, 0, 0.75);
-  padding: 2rem;
+.hero-title {
+  background-color: rgba(100, 100, 100, 0.6);
+  padding: 1.5rem 2rem;
   border-radius: 12px;
-  max-width: 90%;
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  margin: 0.5rem 0 0;
-}
-
-.selector-municipio {
-  background-color: #fff;
-  padding: 2rem;
-  text-align: center;
-}
-
-.selector-municipio form {
-  display: inline-block;
-  max-width: 500px;
-  text-align: left;
-}
-
-.selector-municipio label {
-  display: block;
-  font-weight: bold;
-  margin-top: 1rem;
-  color: #6a1b1a;
-}
-
-.selector-municipio select, .selector-municipio button {
-  width: 100%;
-  padding: 0.7rem;
-  font-size: 1rem;
-  margin-top: 0.3rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.selector-municipio button {
-  background-color: #6a1b1a;
-  color: white;
-  margin-top: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.selector-municipio button:hover {
-  background-color: #5a1312;
-}
-.pantalla-completa {
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.contenido-principal {
-  background-color: rgba(128, 0, 0, 0.75);
-  padding: 2rem;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 700px;
-}
-
-.logo-grande {
-  height: 60px;
-  margin-bottom: 1rem;
-}
-
-.contenido-principal h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.botones-rapidos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.botones-rapidos a {
-  text-decoration: none;
-  background-color: #fff;
-  color: #6a1b1a;
-  padding: 0.7rem;
-  border-radius: 10px;
-  width: 100px;
-  height: 100px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.botones-rapidos img {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 0.3rem;
-}
-
-.selector select,
-.selector button {
-  width: 100%;
-  padding: 0.7rem;
-  margin-top: 0.7rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: none;
-}
-
-.selector button {
-  background-color: #fff;
-  color: #6a1b1a;
-  font-weight: bold;
-  cursor: pointer;
-}
-/* 🟥 Hero principal */
-.hero-full {
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 .hero-title h1 {
-  background-color: rgba(128, 0, 0, 0.8);
-  padding: 1.5rem;
-  border-radius: 12px;
-  font-size: 2.5rem;
-  color: white;
+  font-size: 2rem;
   margin: 0;
+  color: white;
 }
 
 .hero-title h1 span {
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
-/* 🟧 Botones grandes */
+/* Funciones principales */
 .funciones {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 2rem;
   background: #f5f5f5;
 }
@@ -465,7 +98,7 @@ footer {
   color: #555;
 }
 
-/* 🟦 Descripción del programa */
+/* Descripción */
 .descripcion {
   text-align: center;
   padding: 2rem;
@@ -473,8 +106,8 @@ footer {
 }
 
 .descripcion h2 {
-  margin-bottom: 1rem;
   color: #6a1b1a;
+  margin-bottom: 1rem;
 }
 
 .descripcion ul {
@@ -485,10 +118,10 @@ footer {
 }
 
 .descripcion ul li {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
 }
 
-/* 🟩 Selector de municipio/mercado */
+/* Selector final */
 .selector-final {
   text-align: center;
   padding: 2rem;
@@ -519,6 +152,7 @@ footer {
   background-color: #500d0c;
 }
 
+/* Footer */
 footer {
   text-align: center;
   background: #222;
@@ -526,75 +160,16 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
 }
-.qr-mensaje {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  font-family: 'Montserrat', sans-serif;
-}
 
-.qr-mensaje h1 {
-  color: #6a1b1a;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+/* Responsivo */
+@media (max-width: 600px) {
+  .funcion {
+    width: 90%;
+  }
+  .hero-title h1 {
+    font-size: 1.5rem;
+  }
+  .hero-title h1 span {
+    font-size: 1rem;
+  }
 }
-
-.qr-mensaje p {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-}
-
-.qr-mensaje h2 {
-  color: #800000;
-  margin-top: 1.5rem;
-  font-size: 1.3rem;
-}
-
-.qr-mensaje .lema {
-  font-style: italic;
-  color: #444;
-  margin-top: 1rem;
-}
-.qr-ejemplos {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.qr-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  width: 180px;
-}
-
-.qr-card img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-}
-
-.qr-card p {
-  margin: 0.5rem 0;
-  color: #6a1b1a;
-}
-
-.qr-card .ver-mas {
-  display: inline-block;
-  margin-top: 0.5rem;
-  background-color: #6a1b1a;
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-
